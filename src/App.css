@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 3px;
+  padding: 1%;
+  background-color: burlywood;
+}
+
+.add-section{
+  display: flex;
+  justify-content: space-around;
+  margin: 15px 0 70px 0;
+  width: 80%;
+}
+
+.todos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.two-buttons{
+  margin-bottom: 10px;
+}

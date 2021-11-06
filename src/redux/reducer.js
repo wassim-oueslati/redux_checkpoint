@@ -1,4 +1,4 @@
-import { Addtodo, DeleteTodo, isCompleted } from "./actionTypes";
+import { Addtodo, DeleteTodo, isCompleted, Edit_Task } from "./actionTypes";
 
 const initialState = {
   arr: [
@@ -25,6 +25,15 @@ export const AddReducer = (state = initialState, action) => {
         arr: state.arr.map((el) =>
           el.id === action.payload
             ? { ...el, isDone: !el.isDone }
+            : el
+        )
+      };
+    case Edit_Task:
+      return {
+        ...state,
+        arr: state.arr.map((el) =>
+          el.id === action.payload.id
+            ? action.payload
             : el
         )
       };

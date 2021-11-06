@@ -6,8 +6,11 @@ import ListTask from "./components/ListTask";
 export default function App() {
   return (
     <div className="App">
+      <div className="back">
       <Addtask />
       <ListTask />
     </div>
+    </div>
+    
   );
 }

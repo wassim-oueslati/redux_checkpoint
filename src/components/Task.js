@@ -1,6 +1,7 @@
 import { Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { DeleteHandler, DoneHandler } from "../redux/actions";
+import Edit from "./Edit"
 function Task({ el }) {
   const dispatch = useDispatch();
 
@@ -26,6 +27,7 @@ function Task({ el }) {
         >
           Delete
         </Button>
+        <Edit  oldTask={ el }/>
       </div>
         
       

@@ -1,10 +1,12 @@
 import React from 'react';
 import {Form} from "react-bootstrap";
 import {FilterTask} from "../redux/actions";
+import { useDispatch } from "react-redux";
 
 
 function Filter() {
-    const handleChange = (e) => FilterTask(e.target.value);
+    const dispatch = useDispatch();
+    const handleChange = (e) =>dispatch( FilterTask(e.target.value));
     return (
         <div >
             <Form className="filterr">

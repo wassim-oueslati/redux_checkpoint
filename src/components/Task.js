@@ -30,7 +30,6 @@ function Task({ el }) {
         <Edit  oldTask={ el }/>
       </div>
         
-      
     </div>
   );
 }

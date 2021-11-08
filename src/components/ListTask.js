@@ -1,8 +1,6 @@
 import {useSelector} from "react-redux";
 import Task from "./Task";
 
-
-
 function filterTodos(todoList, filterQuery) {
   
   switch (filterQuery) {
@@ -16,20 +14,20 @@ function filterTodos(todoList, filterQuery) {
   }
 }
 
-const ListTask=() =>{
+function ListTask() {
   const todoList = useSelector((state) => state.arr);
-  const filterQuery= useSelector((state) => state.FilterTask)
-  
+  const filterQuery = useSelector((state) => state.FilterTask);
+
   const result = filterTodos(todoList, filterQuery);
-    return (
-      <div>
-        <ul>
-          {result.map((el, i) => (
+  return (
+    <div>
+      <ul>
+        {result.map((el, i) => (
           <Task el={el} key={i} />
-          ))}
-        </ul>
-      </div>
-    );
-  }
+        ))}
+      </ul>
+    </div>
+  );
+}
   
 export default ListTask;

@@ -18,7 +18,7 @@
 .add-section{
   display: flex;
   justify-content: space-around;
-  margin: 15px 0 70px 0;
+  margin: 15px 0 50px 0;
   width: 80%;
 }
 
@@ -30,4 +30,11 @@
 
 .two-buttons{
   margin-bottom: 15px;
+}
+
+.filterr{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 70%;
 }

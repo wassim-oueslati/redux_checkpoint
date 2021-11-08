@@ -1,27 +1,23 @@
 import React, {useState, useEffect} from 'react';
-import {Modal, Button, Form} from "react-bootstrap";
+import {Modal, Button} from "react-bootstrap";
 import {EditTask} from "../redux/actions";
-import { connect } from "react-redux";
+import { useDispatch} from "react-redux";
 
 
-function Edit({ oldTask ,EditTask }) {
+function Edit({ oldTask }) {
     
         const [show, setShow] = useState(false);
         const handleClose = () => setShow(false);
         const handleShow = () => setShow(true);
+
         const [text, setText] = useState("");
 
+        const dispatch = useDispatch();
+        
         useEffect(() => {
-            setText(oldTask.description);
+          setText(oldTask.description);
         }, [show, oldTask.description]);
         
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            const newTask = { ...oldTask, description: text };
-            EditTask(newTask);
-            handleShow();
-        }; 
-
         return (
           <>
             <Button variant="primary" onClick={handleShow}>
@@ -29,7 +25,7 @@ function Edit({ oldTask ,EditTask }) {
             </Button>
       
             <Modal show={show} onHide={handleClose} >
-            <Form onSubmit={handleSubmit}>
+            
               <Modal.Header closeButton>
                 <Modal.Title>Edit Todo list</Modal.Title>
               </Modal.Header>
@@ -40,19 +36,19 @@ function Edit({ oldTask ,EditTask }) {
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>
-                  Close
+                Cancel
                 </Button>
-                <Button variant="primary" type="submit" >
+                <Button variant="primary" onClick={() => {
+                  dispatch(EditTask({ ...oldTask, description: text }));
+                  handleClose();
+                  }} >
                   Save Changes
                 </Button>
               </Modal.Footer>
-            </Form>
+            
             </Modal>
           </>
-        );
-    
-      
-     
+        );   
 }
 
-export default connect(null, { EditTask }) (Edit)
+export default Edit;

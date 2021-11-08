@@ -1,10 +1,11 @@
-import { Addtodo, DeleteTodo, isCompleted, Edit_Task } from "./actionTypes";
+import { Addtodo, DeleteTodo, isCompleted, Edit_Task, Filter_Task } from "./actionTypes";
 
 const initialState = {
   arr: [
     { description: "Study", id: 0, isDone: false },
     { description: "Workout", id: 1, isDone: false }
-  ]
+  ],
+  FilterTask: "no-filter",
 };
 
 export const AddReducer = (state = initialState, action) => {
@@ -37,6 +38,8 @@ export const AddReducer = (state = initialState, action) => {
             : el
         )
       };
+    case Filter_Task:
+      return {...state,FilterTask:action.payload};
     default:
       return state;
   }

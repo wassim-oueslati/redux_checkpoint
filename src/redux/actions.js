@@ -1,4 +1,4 @@
-import { Addtodo ,DeleteTodo ,isCompleted ,Edit_Task } from "./actionTypes";
+import { Addtodo ,DeleteTodo ,isCompleted ,Edit_Task ,Filter_Task } from "./actionTypes";
 
 export const AddHandler = (payload) => {
   return {
@@ -22,6 +22,13 @@ export const DoneHandler = (payload) => {
 export const EditTask = (payload) => {
   return {
     type: Edit_Task,
+    payload
+  };
+};
+
+export const FilterTask = (payload) => {
+  return {
+    type: Filter_Task,
     payload
   };
 };

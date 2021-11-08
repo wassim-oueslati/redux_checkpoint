@@ -1,16 +1,35 @@
 import {useSelector} from "react-redux";
-import Task from "./Task"
+import Task from "./Task";
 
-function ListTask() {
-    const arr = useSelector((state) => state.arr);
+
+
+function filterTodos(todoList, filterQuery) {
+  
+  switch (filterQuery) {
+    case "done":
+      return todoList.filter((todo) => todo.isComplete === true);
+    case "undone":
+      return todoList.filter((todo) => todo.isComplete === false);
+    case "no-filter":
+    default:
+      return todoList;
+  }
+}
+
+const ListTask=() =>{
+  const todoList = useSelector((state) => state.arr);
+  const filterQuery= useSelector((state) => state.FilterTask)
+  
+  const result = filterTodos(todoList, filterQuery);
     return (
       <div>
         <ul>
-          {arr.map((el, i) => (
+          {result.map((el, i) => (
           <Task el={el} key={i} />
           ))}
         </ul>
       </div>
     );
   }
-  export default ListTask;
+  
+export default ListTask;

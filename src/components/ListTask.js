@@ -7,9 +7,9 @@ function filterTodos(todoList, filterQuery) {
   
   switch (filterQuery) {
     case "done":
-      return todoList.filter((todo) => todo.isComplete === true);
+      return todoList.filter((todo) => todo.isDone === true);
     case "undone":
-      return todoList.filter((todo) => todo.isComplete === false);
+      return todoList.filter((todo) => todo.isDone === false);
     case "no-filter":
     default:
       return todoList;
